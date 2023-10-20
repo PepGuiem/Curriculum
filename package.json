@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build":"src/"
+  },
   "dependencies": {
     "parcel": "^2.10.0"
   }
