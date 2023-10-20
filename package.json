@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build":"src/"
+    "build":"parcel src/index.html",
+    "start": "parcel src/index.html"
   },
   "dependencies": {
     "parcel": "^2.10.0"
