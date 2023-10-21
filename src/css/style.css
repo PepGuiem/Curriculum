@@ -9,3 +9,14 @@ body{
     width: 100vw;
     height: 100vh;
 }
+
+svg{
+    margin: 0;
+    padding: 0;
+}
+
+.div1{
+    width: 30%;
+    height: 60%;
+    background-color: #6D6F69;
+}
