@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(180deg, #6D6F69 0%, #A69A9A 100%);
+    background-image: url("/src/img/backgorund.PNG");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -16,7 +16,35 @@ svg{
 }
 
 .div1{
-    width: 30%;
-    height: 60%;
-    background-color: #6D6F69;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
+}
+
+.networks{
+    height: 100%;
+    width: 15%;
+}
+
+.tv{
+    height: 100%;
+    width: 60%;
+}
+
+.lamp{
+    height: 100%;
+    width: 25%;
+}
+
+footer{
+    height: 3%;
+    width: 100%;
+}
+
+#footer{
+    width: 98%;
+    margin-left: 1%;
+    color: black;
+    font-size: 24px;
 }
