@@ -9,7 +9,24 @@
 </head>
 <body>
     <div class="div1">
-        <div class="networks"></div>
+        <div class="networks">
+            <div class="dropdown" id="menu">
+                <button type="button">menu</button>
+                <div class="dropdown-content">
+                    <a href="#">Opción 1</a>
+                    <a href="#">Opción 2</a>
+                    <a href="#">Opción 3</a>
+                </div>
+            </div>
+            
+            <script>
+                // JavaScript para controlar la apertura y cierre del menú
+                document.getElementById("menu").addEventListener("click", function() {
+                    var menuContent = this.querySelector(".dropdown-content");
+                    menuContent.classList.toggle("active");
+                });
+            </script>
+        </div>
         <div class="tv"></div>
         <div class="lamp"></div>
     </div>
