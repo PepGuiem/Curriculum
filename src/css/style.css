@@ -12,12 +12,30 @@ body{
     overflow-x: hidden;
 }
 
+.div-principal{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+}
+
+.div2{
+    border: 3px solid black;
+    position: relative;
+    height: 60%;
+    width: 100%;
+    background-color: aqua;
+}
 
 .div1{
     width: 100vw;
     height: 90vh;
     display: flex;
     flex-direction: row;
+    z-index: 1;
+    position: absolute;
 }
 
 .networks{
@@ -34,19 +52,6 @@ body{
 .lamp{
     height: 100%;
     width: 35%;
-}
-
-footer{
-    margin: 0;
-    height: 5vh;
-    width: 100%;
-}
-
-#footer{
-    width: 98%;
-    margin-left: 1%;
-    color: black;
-    font-size: 18px;
 }
 
 .dropdown {
