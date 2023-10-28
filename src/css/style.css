@@ -1,9 +1,12 @@
+
+*{
+    color: #000;
+    font-family: Lalezar;
+    font-style: normal;
+}
+
 body{
-    background-image: url("/src/img/backgorund.PNG");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
+    background: linear-gradient(90deg, #CC8652, #BF611C, #BF611C 100%);
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -18,15 +21,16 @@ body{
     position: relative;
     height: 100vh;
     width: 100%;
-    background-color: #333;
 }
 
 .div2{
-    border: 3px solid black;
+    border-width: 0px 0px 3px 0px;
+    border-style: solid;
+    border-color: black;
     position: relative;
     height: 60%;
     width: 100%;
-    background-color: aqua;
+    background: linear-gradient(180deg, #6D6F69 0%, #A69A9A 100%);
 }
 
 .div1{
@@ -34,7 +38,6 @@ body{
     height: 90vh;
     display: flex;
     flex-direction: row;
-    z-index: 1;
     position: absolute;
 }
 
@@ -52,6 +55,8 @@ body{
 .lamp{
     height: 100%;
     width: 35%;
+    display: flex;
+    justify-content: center;
 }
 
 .dropdown {
