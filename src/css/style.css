@@ -1,7 +1,7 @@
 
 *{
     color: #000;
-    font-family: Lalezar;
+    font-family: Lalezar, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: normal;
 }
 
@@ -35,7 +35,7 @@ body{
 
 .div1{
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -103,7 +103,6 @@ body{
     border: 2px solid black;
 }
 
-/* Estilo para los elementos del menú */
 .dropdown-content a {
     text-align: center;
     color: #333;
@@ -121,9 +120,13 @@ body{
 }
 
 .only-tv{
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     text-align: right;
+    margin-left: auto;
 }
 
 .tv{
@@ -132,8 +135,6 @@ body{
     background-color: #D9D9D9;
     border-radius: 10px;
     border: 3px solid black;
-    margin-top: -5px;
-    margin-left: auto;
     box-shadow: -40px 0px 0px #4D4B4B;
 }
 
@@ -145,4 +146,39 @@ body{
     background-color: #5a5858;
     border-radius: 10px;
     border: 3px solid black;
+    background-image: url(/src/img/dungeon.gif);
+    background-size: cover;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; 
+}
+
+.light{
+    width: 200px;
+    border: yellow 3px solid;
+    height: 420px;
+    margin-top: -7px;
+    background-color: rgba(251, 255, 4, 0.685);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.light p{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.play{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 4px 30px;
+    border-radius: 10px;
+    background-color: rgb(75, 160, 194);
+    border: 2px solid rgb(46, 98, 119);
+}
+
+.play:hover{
+    background-color: rgba(13, 59, 102, 0.795);
+    color: white;
 }
