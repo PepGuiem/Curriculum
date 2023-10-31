@@ -1,0 +1,101 @@
+/*Solo curriculum*/
+
+.lamp-content1.desactive{
+    display: none;
+}
+
+.game.desactive{
+    display: none;
+}
+
+.lamp-onlyCurriculum {
+    width: 80%;
+    text-align: center;
+    display: none;
+}
+
+.lamp-onlyCurriculum.active{
+    display: flex;
+    justify-content: center;
+}
+
+.lamp-onlyCurriculum-content{
+    width: 100%;
+    height: 100%;
+}
+
+.lamp-onlyCurriculum .light{
+    margin: 0;
+    margin-top: -1%;
+    width: 99%;
+    height: 80%;
+}
+
+.div-content-onlyCurriculum{
+    margin-left: 10%;
+    width: 80%;
+    height: 90%;
+}
+.div-content-onlyCurriculum h1{
+    width: 100%;
+    height: 8%;
+    background-color: #D9D9D9;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.div-content-onlyCurriculum p{
+    width: 100%;
+    height: 8%;
+    background-color: #D9D9D9;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+
+.div-content-onlyCurriculum .sections{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div-content-onlyCurriculum .sections div{
+    width: 25%;
+    height: 60%;
+    background-color: #D9D9D9;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.move-in-onlyCurriculum{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.move-in-onlyCurriculum div{
+    margin: 0 1%;
+}
+
+.lamp-content1.active{
+    display: block;
+}
+
+.game.active{
+    display: block;
+}
+
+.lamp-onlyCurriculum.desactive{
+    display: none;
+}
+
+.content2{
+    display: none;
+}
+
+.content3{
+    display: none;
+}

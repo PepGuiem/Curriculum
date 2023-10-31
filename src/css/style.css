@@ -62,12 +62,14 @@ body{
     height: 100%;
 }
 
-.lamp{
+.lamp-content1{
     height: 100%;
     width: 35%;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
+
 
 
 /*-------NETWORKS------*/
@@ -101,18 +103,35 @@ body{
 }
 .dropdown-content {
     padding-top: 35px;
-    display: none;
+    display: block;
+    height: 0;
     position: absolute;
     background-color: var(--networks-color);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 10px;
     margin-top: -35px;
     z-index: 1;
+    transition: height 0.5s ease-in;
+}
+
+.dropdown-content img{
+    height: 0;
+    width: 70%;
+    opacity: 0;
 }
 
 .dropdown .dropdown-content.active {
+    text-align: center;
+    height: 170%;
     display: block;
-    border: 2px solid black;
+    transition: height 0.5s ease-out;
+    border: 2px solid black ;
+}
+
+.dropdown-content.active  a img{
+    opacity: 1;
+    height: 70%;
+    transition: opacity 1s ease-in-out;
 }
 
 .dropdown-content a {
@@ -145,7 +164,7 @@ body{
 
 .tv{
     width: 100%;
-    height: 25%;
+    height: 35%;
     background-color: var(--networks-color);
     border-radius: 10px;
     border: 3px solid black;
@@ -182,34 +201,19 @@ body{
 
 /*----------LAMP----------*/
 .light{
-    width: 200px;
     border: yellow 3px solid;
-    height: 420px;
     margin-top: -7px;
     background-color: rgba(251, 255, 4, 0.685);
     border-radius: 5px;
     text-align: center;
+    display: block;
+    width: 80%;
+    margin-left: 10%;
 }
+
 
 .light p{
-    font-size: 12px;
+    font-size: 80%;
     font-weight: bold;
     margin: 10px;
-}
-
-
-/*Solo curriculum*/
-.div-content2{
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-}
-
-.desactive{
-    display: none;
-}
-
-.active{
-    display: block;
 }
