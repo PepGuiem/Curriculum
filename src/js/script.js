@@ -27,13 +27,14 @@ document.getElementById("only-curriculum").addEventListener("click", function(){
 
 document.getElementById("back").addEventListener("click", function(){
     pageCurriculum--;
-    if(pageCurriculum == -1){
+    if(pageCurriculum < 0){
         principal.classList.toggle("desactive");
         principal2.classList.toggle("desactive");
         onlyCurriculun.classList.toggle("active");
         principal.classList.toggle("active");
         principal2.classList.toggle("active");
         onlyCurriculun.classList.toggle("desactive");
+        pageCurriculum = 0;
         controladorToggle++;
     }else if(pageCurriculum == 0){
         curriculum1.style.display = "block";
