@@ -217,3 +217,38 @@ body{
     font-weight: bold;
     margin: 10px;
 }
+
+@media only screen and (min-width: 1440px) {
+
+    .div-principal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .div-wall{
+        height: 100%;
+    }
+    .div-content{
+        width: 60vw;
+        height: 60vh;
+        border: #333 20px solid;
+        background-size: cover;
+        background-image: url(/src/img/dungeon.gif);
+    }
+
+    .game img{
+        display: none;
+    }
+    
+    .screen{
+        background-image:url(/src/img/pixil-frame-0\ \(3\).png);
+        background-color: #3a6150;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .div-content{
+        display: none;
+    }
+}

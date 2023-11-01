@@ -36,10 +36,10 @@ document.getElementById("back").addEventListener("click", function(){
         onlyCurriculun.classList.toggle("desactive");
         controladorToggle++;
     }else if(pageCurriculum == 0){
-        curriculum1.style.display = "flex";
+        curriculum1.style.display = "block";
         curriculum2.style.display = "none";
     } else if(pageCurriculum == 1){
-        curriculum2.style.display = "flex";
+        curriculum2.style.display = "block";
         curriculum3.style.display = "none";
         next.style.display = "block";
     }
@@ -49,10 +49,10 @@ next.addEventListener("click", function(){
     pageCurriculum++;
     if(pageCurriculum == 1){
         curriculum1.style.display = "none";
-        curriculum2.style.display = "flex";
+        curriculum2.style.display = "block";
     }else if(pageCurriculum == 2){
         curriculum2.style.display = "none";
-        curriculum2.style.display = "flex";
+        curriculum2.style.display = "block";
         next.style.display = "none";
     }
 });
