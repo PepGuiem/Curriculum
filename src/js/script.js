@@ -7,6 +7,9 @@ var curriculum1 = document.querySelector(".div-content-onlyCurriculum.content1")
 var curriculum2 = document.querySelector(".div-content-onlyCurriculum.content2");
 var curriculum3 = document.querySelector(".div-content-onlyCurriculum.content3");
 var next = document.getElementById("next");
+var play = document.querySelector(".button-play");
+var tv = document.querySelector(".tv");
+var divTv = document.querySelector(".div-tv")
 
 document.getElementById("menu").addEventListener("click", function() {
     var menuContent = this.querySelector(".dropdown-content");
@@ -53,7 +56,14 @@ next.addEventListener("click", function(){
         curriculum2.style.display = "block";
     }else if(pageCurriculum == 2){
         curriculum2.style.display = "none";
-        curriculum2.style.display = "block";
+        curriculum3.style.display = "block";
         next.style.display = "none";
     }
+});
+
+
+play.addEventListener("click", function(){
+    tv.classList.toggle("game-active");
+    divTv.classList.toggle("game-active");
+    play.style.display = "none";
 });
