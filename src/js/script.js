@@ -70,7 +70,41 @@ play.addEventListener("click", function(){
     document.querySelector(".home").style.display = "block";
     document.querySelector(".back-game").style.display = "block";
     document.querySelector(".next-level").style.display = "block";
+    setTimeout(game(), 10000);
 });
+const tablero = document.querySelector("#tablero");
+const contexto = tablero.getContext("2d");
+const horizontal = 10;
+const vertical = 5;
+
+
+function game(){
+    let gw = (tablero.getBoundingClientRect().width / horizontal) - 1.6;
+    let gh = (tablero.getBoundingClientRect().height / vertical) - 15.6;
+    pintarTablero(gw,gh)
+
+}
+
+function pintarTablero(gw,gh){
+    contexto.fillStyle = "black";
+    contexto.lineWidth = 1;
+    let y = 0;
+    for(let i = 0; i < vertical; i++){
+        pintarFila(y,gw,gh);
+        y = y + gh;
+    }
+}
+
+function pintarFila(y,gw,gh){
+    let x = 0;
+    for(let j = 0; j < horizontal; j++){
+        contexto.rect(x,y,gw,gh);
+        contexto.stroke();
+        x = x + gw;
+    }
+}
+
+
 
 document.querySelector(".home").addEventListener("click", function(){
     tv.classList.toggle("game-active");
