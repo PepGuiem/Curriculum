@@ -66,4 +66,18 @@ play.addEventListener("click", function(){
     tv.classList.toggle("game-active");
     divTv.classList.toggle("game-active");
     play.style.display = "none";
+    document.querySelector("#tablero").style.display = "block";
+    document.querySelector(".home").style.display = "block";
+    document.querySelector(".back-game").style.display = "block";
+    document.querySelector(".next-level").style.display = "block";
+});
+
+document.querySelector(".home").addEventListener("click", function(){
+    tv.classList.toggle("game-active");
+    divTv.classList.toggle("game-active");
+    play.style.display = "block";
+    document.querySelector("#tablero").style.display = "none";
+    document.querySelector(".home").style.display = "none";
+    document.querySelector(".back-game").style.display = "none";
+    document.querySelector(".next-level").style.display = "none";
 });
