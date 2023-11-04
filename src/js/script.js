@@ -70,12 +70,30 @@ play.addEventListener("click", function(){
     document.querySelector(".home").style.display = "block";
     document.querySelector(".back-game").style.display = "block";
     document.querySelector(".next-level").style.display = "block";
-    setTimeout(game(), 10000);
+    game();
 });
-const tablero = document.querySelector("#tablero");
-const contexto = tablero.getContext("2d");
-const horizontal = 10;
-const vertical = 5;
+
+
+var tablero = document.querySelector("#tablero");
+var contexto = tablero.getContext("2d");
+contexto.fillStyle = "blue";
+var horizontal = 10;
+var vertical = 5;
+const caballero = new Image();
+caballero.src = "/src/img/caballero.png";
+const cofre = new Image();
+cofre.src = "/src/img/cofre.png";
+const paredes = new Image();
+paredes.src = "/src/img/paredes-mazmorra.jpg";
+const suelo = new Image();
+suelo.src = "/src/img/suelo-mazmorra.jpg";
+var level1 = [
+    ["X","X","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," ","#","X"],
+    ["X"," ","X","X","X","X","X","X","X","X"],
+    ["X"," ","X","X","X","X","X","X","X","X"],
+    ["X","!","X","X","X","X","X","X","X","X"]
+];
 
 
 function game(){
@@ -86,20 +104,29 @@ function game(){
 }
 
 function pintarTablero(gw,gh){
-    contexto.fillStyle = "black";
+    contexto.fillStyle = "blue";
     contexto.lineWidth = 1;
     let y = 0;
     for(let i = 0; i < vertical; i++){
-        pintarFila(y,gw,gh);
+        pintarFila(i,y,gw,gh);
         y = y + gh;
     }
 }
 
-function pintarFila(y,gw,gh){
+function pintarFila(i, y, gw, gh) {
     let x = 0;
-    for(let j = 0; j < horizontal; j++){
-        contexto.rect(x,y,gw,gh);
-        contexto.stroke();
+    for (let j = 0; j < horizontal; j++) {
+        if (level1[i][j] == "X") {
+            contexto.drawImage(paredes, x, y, gw, gh); 
+        }else {
+            contexto.drawImage(suelo, x, y, gw, gh); 
+            if (level1[i][j] == "!") {
+                contexto.drawImage(caballero, x, y, gw + 10, gh + 15.6); 
+            } else if (level1[i][j] == "#") {
+                contexto.drawImage(cofre, x, y, gw + 10, gh); 
+            } 
+        }
+        contexto.rect(x, y, gw, gh);
         x = x + gw;
     }
 }
@@ -114,4 +141,5 @@ document.querySelector(".home").addEventListener("click", function(){
     document.querySelector(".home").style.display = "none";
     document.querySelector(".back-game").style.display = "none";
     document.querySelector(".next-level").style.display = "none";
+    contexto.clearRect(0, 0, tablero.width, tablero.height);
 });
