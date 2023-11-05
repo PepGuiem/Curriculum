@@ -69,7 +69,7 @@ play.addEventListener("click", function(){
     document.querySelector("#tablero").style.display = "block";
     document.querySelector(".home").style.display = "block";
     document.querySelector(".back-game").style.display = "block";
-    document.querySelector(".next-level").style.display = "block";
+    document.querySelector(".next-level").style.display = "none";
     game();
 });
 
@@ -87,6 +87,7 @@ const paredes = new Image();
 paredes.src = "/src/img/paredes-mazmorra.jpg";
 const suelo = new Image();
 suelo.src = "/src/img/suelo-mazmorra.jpg";
+var level = 1;
 var level1 = [
     ["X","X","X","X","X","X","X","X","X","X"],
     ["X"," "," "," "," "," "," "," ","#","X"],
@@ -94,35 +95,184 @@ var level1 = [
     ["X"," ","X","X","X","X","X","X","X","X"],
     ["X","!","X","X","X","X","X","X","X","X"]
 ];
+var posPersonLevel1 = [4,1];
+var level2 = [
+    ["X","X","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," ","#","X"],
+    ["X"," ","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," ","!","X"],
+    ["X","X","X","X","X","X","X","X","X","X"]
+];
+var posPersonLevel2 = [3,8];
+var level3 = [
+    ["X","X","X"," "," "," ","X","X","X","X"],
+    ["X","!","X"," ","X"," ","X"," ","#","X"],
+    ["X"," ","X"," ","X"," ","X"," ","X","X"],
+    ["X"," ","X"," ","X"," ","X"," ","X","X"],
+    ["X"," "," "," ","X"," "," "," ","X","X"]
+];
+var posPersonLevel3 = [1,1];
+var level4 = [
+    ["X","X","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," ","#","X"],
+    ["X"," ","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," "," ","X"],
+    ["X","X","X","X","X","X","X","X","!","X"]
+];
+var posPersonLevel4 = [4,8];
+var level5 = [
+    ["X","X","X","X","X","X","X","X","X","X"],
+    ["X","#"," "," "," "," "," "," "," ","X"],
+    ["X"," ","X","X","X","X","X","X"," ","X"],
+    ["X"," "," "," "," "," "," "," "," ","X"],
+    ["X","X","X","X","X","X","X","X","!","X"]
+];
+var posPersonLevel5 = [4,8];
+var level6 = [
+    ["X","X","X","X","X","X","X","X","X","X"],
+    ["X"," "," "," "," "," "," "," "," ","X"],
+    ["X"," ","X","X","X","X","X","X"," ","X"],
+    ["X"," "," "," "," ","#","X"," "," ","X"],
+    ["X","X","X","X","X","X","X","X","!","X"]
+];
+var posPersonLevel6 = [4,8];
+var posPerson = posPersonLevel1;
+var levelMap = level1;
 
+document.addEventListener('keydown', function(event) {
+    let tecla = event.key.toLowerCase();
+    if (tecla == 'w') {
+      if((posPerson[0]-1) > -1 && levelMap[posPerson[0]-1][posPerson[1]] != 'X'){
+        if(levelMap[posPerson[0]-1][posPerson[1]] == '#') {
+            document.querySelector(".next-level").style.display = "block";
+        }else{
+            movimentJugadorWS(posPerson,levelMap,1);
+        }
+      } 
+    } else if (tecla == 'a') {
+        if((posPerson[1]-1) > -1 && levelMap[posPerson[0]][posPerson[1]-1] != 'X'){
+            if(levelMap[posPerson[0]][posPerson[1]-1] == '#') {
+                document.querySelector(".next-level").style.display = "block";
+            }else{
+                movimentJugadorAD(posPerson,levelMap,1);
+            }
+        } 
+    } else if (tecla == 's') {
+        if((posPerson[0]+1) < vertical && levelMap[posPerson[0]+1][posPerson[1]] != 'X'){
+            if(levelMap[posPerson[0]+1][posPerson[1]] == '#') {
+                document.querySelector(".next-level").style.display = "block";
+            }else{
+                movimentJugadorWS(posPerson,levelMap,-1);
+            }
+        } 
+    } else if (tecla == 'd') {
+        if((posPerson[1]+1) < horizontal && levelMap[posPerson[0]][posPerson[1]+1] != 'X'){
+            if(levelMap[posPerson[0]][posPerson[1]+1] == '#') {
+                document.querySelector(".next-level").style.display = "block";
+            }else{
+                movimentJugadorAD(posPerson,levelMap,-1);
+            }
+        } 
+    }
+});
 
-function game(){
-    let gw = (tablero.getBoundingClientRect().width / horizontal) - 1.6;
-    let gh = (tablero.getBoundingClientRect().height / vertical) - 15.6;
-    pintarTablero(gw,gh)
-
+function whoLevelIts(){
+    if(level == 1){
+        posPerson = posPersonLevel1;
+        levelMap = level1;
+    } else if(level == 2){
+        posPerson = posPersonLevel2;
+        levelMap = level2;
+    } else if(level == 3){
+        posPerson = posPersonLevel3;
+        levelMap = level3;
+    } else if(level == 4){
+        posPerson = posPersonLevel4;
+        levelMap = level4;
+    } else if(level == 5){
+        posPerson = posPersonLevel5;
+        levelMap = level5;
+    } else if(level == 6){
+        posPerson = posPersonLevel6;
+        levelMap = level6;
+    }
 }
 
-function pintarTablero(gw,gh){
+function movimentJugadorWS(posPerson,levelMap,moviment){
+    contexto.clearRect(posPerson[1] * gw, posPerson[0] * gh, gw, gh);
+    contexto.drawImage(suelo,posPerson[1] * gw, posPerson[0] * gh, gw, gh);
+    levelMap[posPerson[0]][posPerson[1]] = " ";
+    posPerson[0] = posPerson[0] - moviment;
+    levelMap[posPerson[0]][posPerson[1]] = "!";
+    contexto.drawImage(caballero,posPerson[1] * gw, posPerson[0] * gh, gw + 10, gh + 15.6);
+}
+
+function movimentJugadorAD(posPerson,levelMap,moviment){
+    contexto.clearRect(posPerson[1] * gw, posPerson[0] * gh, gw, gh);
+    contexto.drawImage(suelo,posPerson[1] * gw, posPerson[0] * gh, gw, gh);
+    levelMap[posPerson[0]][posPerson[1]] = " ";
+    posPerson[1] = posPerson[1] - moviment;
+    levelMap[posPerson[0]][posPerson[1]] = "!";
+    contexto.drawImage(caballero,posPerson[1] * gw, posPerson[0] * gh, gw + 10, gh + 15.6);
+}
+
+
+document.querySelector(".next-level").addEventListener("click", function(){
+    contexto.clearRect(0, 0, tablero.width, tablero.height);
+    document.querySelector(".next-level").style.display = "none";
+    level = level + 1;
+    whoLevelIts();
+    pintarTablero();
+});
+
+document.querySelector(".back-game").addEventListener("click", function(){
+    contexto.clearRect(0, 0, tablero.width, tablero.height);
+    level = level - 1;
+    if(level == 0){
+        tv.classList.toggle("game-active");
+        divTv.classList.toggle("game-active");
+        play.style.display = "block";
+        document.querySelector("#tablero").style.display = "none";
+        document.querySelector(".home").style.display = "none";
+        document.querySelector(".back-game").style.display = "none";
+        document.querySelector(".next-level").style.display = "none";
+        contexto.clearRect(0, 0, tablero.width, tablero.height);
+        level = 1;      
+    }else{
+        whoLevelIts();
+        pintarTablero();
+    }
+});
+
+
+var gw = 0;
+var gh = 0;
+function game(){
+    gw = (tablero.getBoundingClientRect().width / horizontal) - 1.6;
+    gh = (tablero.getBoundingClientRect().height / vertical) - 15.6;
+    pintarTablero();
+}
+
+function pintarTablero(){
     contexto.fillStyle = "blue";
     contexto.lineWidth = 1;
     let y = 0;
     for(let i = 0; i < vertical; i++){
-        pintarFila(i,y,gw,gh);
+        pintarFila(i,y);
         y = y + gh;
     }
 }
 
-function pintarFila(i, y, gw, gh) {
+function pintarFila(i, y) {
     let x = 0;
     for (let j = 0; j < horizontal; j++) {
-        if (level1[i][j] == "X") {
+        if (levelMap[i][j] == "X") {
             contexto.drawImage(paredes, x, y, gw, gh); 
         }else {
             contexto.drawImage(suelo, x, y, gw, gh); 
-            if (level1[i][j] == "!") {
+            if (levelMap[i][j] == "!") {
                 contexto.drawImage(caballero, x, y, gw + 10, gh + 15.6); 
-            } else if (level1[i][j] == "#") {
+            } else if (levelMap[i][j] == "#") {
                 contexto.drawImage(cofre, x, y, gw + 10, gh); 
             } 
         }
