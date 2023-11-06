@@ -68,3 +68,44 @@
     height: 100%;
     border-radius: 5px;
 }
+
+.projects-buttton{
+    display: none;
+}
+
+.light-content2{
+ display: none;
+}
+
+.light-content3{
+ display: none;
+}
+
+.light-content4{
+    display: none;
+}
+
+.light-content5{
+    display: none;
+}
+
+.light-content6{
+    display: none;
+}
+
+.light-content7{
+    display: none;
+}
+
+.light-content8{
+    display: none;
+}
+
+.lamp-content1 .light .cards-lights{
+    margin-left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: #D9D9D9;
+    border: solid 3px black;
+    border-radius: 5px;
+}
