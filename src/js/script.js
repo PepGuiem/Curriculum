@@ -300,6 +300,7 @@ function undisplayGame(){
     document.querySelector(".home").style.display = "none";
     document.querySelector(".back-game").style.display = "none";
     document.querySelector(".next-level").style.display = "none";
+    document.querySelector(".projects-buttton").style.display = "none";
     contexto.clearRect(0, 0, tablero.width, tablero.height);
     document.querySelector(".light-content1").style.display = "block";
     document.querySelector(".light-content2").style.display = "none";
