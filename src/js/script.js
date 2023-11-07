@@ -65,7 +65,7 @@ next.addEventListener("click", function(){
     }
 });
 
-
+var playing = false;
 play.addEventListener("click", function(){
     tv.classList.toggle("game-active");
     divTv.classList.toggle("game-active");
@@ -77,6 +77,11 @@ play.addEventListener("click", function(){
     document.querySelector(".light-content1").style.display = "none";
     document.querySelector(".light-content2").style.display = "block";
     game();
+    whoLevelIts();
+    playing = true;
+    if(level != 1){
+        document.querySelector(".light-content2").style.display = "none";
+    }
 });
 
 
@@ -159,7 +164,7 @@ var levelMap = level1;
 
 document.addEventListener('keydown', function(event) {
     let tecla = event.key.toLowerCase();
-    if (tecla == 'w') {
+    if (tecla == 'w' && playing) {
       if((posPerson[0]-1) > -1 && levelMap[posPerson[0]-1][posPerson[1]] != 'X'){
         if(levelMap[posPerson[0]-1][posPerson[1]] == '#') {
             document.querySelector(".next-level").style.display = "block";
@@ -167,7 +172,7 @@ document.addEventListener('keydown', function(event) {
             movimentJugadorWS(posPerson,levelMap,1, caballero, 0);
         }
       } 
-    } else if (tecla == 'a') {
+    } else if (tecla == 'a' && playing) {
         if((posPerson[1]-1) > -1 && levelMap[posPerson[0]][posPerson[1]-1] != 'X'){
             if(levelMap[posPerson[0]][posPerson[1]-1] == '#') {
                 document.querySelector(".next-level").style.display = "block";
@@ -175,7 +180,7 @@ document.addEventListener('keydown', function(event) {
                 movimentJugadorAD(posPerson,levelMap,1,caballeroRight, 0);
             }
         } 
-    } else if (tecla == 's') {
+    } else if (tecla == 's' && playing) {
         if((posPerson[0]+1) < vertical && levelMap[posPerson[0]+1][posPerson[1]] != 'X'){
             if(levelMap[posPerson[0]+1][posPerson[1]] == '#') {
                 document.querySelector(".next-level").style.display = "block";
@@ -183,7 +188,7 @@ document.addEventListener('keydown', function(event) {
                 movimentJugadorWS(posPerson,levelMap,-1, caballeroLeft, 10);
             }
         } 
-    } else if (tecla == 'd') {
+    } else if (tecla == 'd' && playing) {
         if((posPerson[1]+1) < horizontal && levelMap[posPerson[0]][posPerson[1]+1] != 'X'){
             if(levelMap[posPerson[0]][posPerson[1]+1] == '#') {
                 if( level == 7){
@@ -213,14 +218,12 @@ function whoLevelIts(){
         levelMap = level1;
         document.querySelector(".light-content2").style.display = "block";
         document.querySelector(".light-content3").style.display = "none";
-        console.log(1);
     } else if(level == 2){
         posPerson = posPersonLevel2;
         levelMap = level2;
         document.querySelector(".light-content2").style.display = "none";
         document.querySelector(".light-content3").style.display = "block";
         document.querySelector(".light-content4").style.display = "none";
-        console.log(2);
     } else if(level == 3){
         posPerson = posPersonLevel3;
         levelMap = level3;
@@ -245,11 +248,12 @@ function whoLevelIts(){
         document.querySelector(".light-content6").style.display = "none";
         document.querySelector(".light-content7").style.display = "block";
         document.querySelector(".light-content8").style.display = "none";
+        document.querySelector(".projects-buttton").style.display = "none";
     } else if(level == 7){
-        document.querySelector(".light-content7").style.display = "none";
-        document.querySelector(".light-content8").style.display = "block";
         posPerson = posPersonLevel7;
         levelMap = level7;
+        document.querySelector(".light-content7").style.display = "none";
+        document.querySelector(".light-content8").style.display = "block";
     }
 }
 
@@ -310,12 +314,16 @@ function undisplayGame(){
     document.querySelector(".light-content6").style.display = "none";
     document.querySelector(".light-content7").style.display = "none";
     document.querySelector(".light-content8").style.display = "none";
+    playing = false;
 }
+
 var gw = 0;
 var gh = 0;
 function game(){
-    gw = (tablero.getBoundingClientRect().width / horizontal) - 1.6;
-    gh = (tablero.getBoundingClientRect().height / vertical) - 15.6;
+    gw = (tablero.getBoundingClientRect().width / horizontal);
+    gh = (tablero.getBoundingClientRect().height / vertical);
+    tablero.width = gw * horizontal;
+    tablero.height = gh * vertical;
     pintarTablero();
 }
 

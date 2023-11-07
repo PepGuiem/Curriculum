@@ -164,7 +164,7 @@ body{
 }
 
 .tv{
-    width: 100%;
+    width: 80%;
     height: 35%;
     transition: height 0.5s ease-in-out;
     background-color: var(--networks-color);
@@ -221,6 +221,10 @@ body{
     margin: 10px;
 }
 
+.lamp-responsive{
+    display: none;
+}
+
 
 @media only screen and (min-width: 1440px) {
 
@@ -254,5 +258,57 @@ body{
 @media only screen and (max-width: 767px) {
     .div-content{
         display: none;
+    }
+
+    .lamp-responsive{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        position: absolute;
+    }
+
+    .light{
+        overflow: auto;
+        height: 80%;
+    }
+
+
+    .light-content2{
+        display: block;
+    }
+       
+    .light-content3{
+        display: block;
+    }
+       
+    .light-content4{
+        display: block;
+    }
+    
+    .light-content5{
+        display: block;
+    }
+    
+    .light-content6{
+        display: block;
+    }
+    
+    .light-content7{
+        display: block;
+    }
+    
+    .light-content8{
+        display: block;
+    }
+    
+    .cards-lights{
+        margin-left: 10%;
+        width: 80%;
+        height: 80%;
+        background-color: #D9D9D9;
+        border: solid 3px black;
+        border-radius: 5px;
     }
 }
