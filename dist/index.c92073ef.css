@@ -1,9 +1,288 @@
+* {
+  color: #000;
+  font-family: Lalezar, Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serif;
+  font-style: normal;
+}
+
+:root {
+  --networks-color: #d9d9d9;
+}
+
 body {
-  background: linear-gradient(#6d6f69 0%, #a69a9a 100%) bottom / cover no-repeat fixed;
+  background: linear-gradient(90deg, #cc8652, #bf611c, #bf611c 100%);
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+.div-wall {
+  background: linear-gradient(#6d6f69 0%, #a69a9a 100%);
+  border: 0 solid #000;
+  border-bottom-width: 3px;
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+
+.div-principal {
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.div-content {
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+}
+
+.networks {
+  text-align: center;
+  width: 15%;
+  height: 100%;
+}
+
+.game {
+  width: 50%;
+  height: 100%;
+}
+
+.lamp-content1 {
+  text-align: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  display: flex;
+}
+
+.dropdown {
+  text-align: center;
+  margin-top: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: var(--networks-color);
+  text-align: center;
+  z-index: 10;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: 60%;
+  padding: 1px;
+  display: inline-block;
+  position: relative;
+}
+
+#networks-button {
+  border: 0px solid var(--networks-color);
+  background-color: var(--networks-color);
+  border-radius: 50%;
+  margin-top: 4px;
+  padding: 7px;
+}
+
+.dropdown-content {
+  background-color: var(--networks-color);
+  z-index: 1;
+  border-radius: 10px;
+  height: 0;
+  margin-top: -35px;
+  padding-top: 35px;
+  transition: height .5s ease-in;
+  display: block;
+  position: absolute;
+  box-shadow: 0 8px 16px #0003;
+}
+
+.dropdown-content img {
+  opacity: 0;
+  width: 70%;
+  height: 0;
+}
+
+.dropdown .dropdown-content.active {
+  text-align: center;
+  border: 2px solid #000;
+  height: 170%;
+  transition: height .5s ease-out;
+  display: block;
+}
+
+.dropdown-content.active a img {
+  opacity: 1;
+  height: 70%;
+  transition: opacity 1s ease-in-out;
+}
+
+.dropdown-content a {
+  text-align: center;
+  color: #333;
+  padding: 5px 0;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #706d6d9d;
+}
+
+.svg-tv {
+  margin-top: auto;
+}
+
+.div-tv {
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 60%;
+  height: 100%;
+  margin-left: auto;
+  transition: width .5s ease-in-out;
+  display: flex;
+}
+
+.tv {
+  background-color: var(--networks-color);
+  border: 3px solid #000;
+  border-radius: 10px;
+  width: 80%;
+  height: 35%;
+  transition: height .5s ease-in-out;
+  display: flex;
+  box-shadow: -40px 0 #4d4b4b;
+}
+
+.screen {
+  background-image: url("dungeon.6fce9640.gif");
+  background-size: cover;
+  border: 3px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  margin-top: 4%;
+  margin-left: 4%;
+  display: flex;
+}
+
+.button-play {
+  background-color: #4ba0c2;
+  border: 2px solid #2e6277;
+  border-radius: 10px;
+  padding: 4px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button-play:hover {
+  color: #fff;
+  background-color: #0d3b66cb;
+}
+
+.light {
+  text-align: center;
+  background-color: #fbff04af;
+  border: 3px solid #ff0;
+  border-radius: 5px;
+  width: 80%;
+  margin-top: -7px;
+  margin-left: 10%;
+  display: block;
+}
+
+.light p {
+  margin: 10px;
+  padding: 1%;
+  font-size: 70%;
+  font-weight: bold;
+}
+
+.light img {
+  margin-top: 3%;
+}
+
+.lamp-responsive {
+  display: none;
+}
+
+i {
+  font-size: 1000px;
+}
+
+i:hover {
+  color: #535151;
+}
+
+@media only screen and (width >= 1440px) {
+  .div-principal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .div-wall {
+    height: 100%;
+  }
+
+  .div-content {
+    background-image: url("dungeon.6fce9640.gif");
+    background-size: cover;
+    border: 20px solid #333;
+    width: 60vw;
+    height: 60vh;
+  }
+
+  .game img {
+    display: none;
+  }
+
+  .screen {
+    background-color: #3a6150;
+    background-image: url("caballero.b28097a7.png");
+  }
+}
+
+@media only screen and (width <= 768px) {
+  .div-content {
+    display: none;
+  }
+
+  .lamp-responsive {
+    text-align: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+  }
+
+  .light {
+    height: 80%;
+    overflow: auto;
+  }
+
+  .light-content2, .light-content3, .light-content4, .light-content5, .light-content6, .light-content7, .light-content8 {
+    display: block;
+  }
+
+  .cards-lights {
+    background-color: #d9d9d9;
+    border: 3px solid #000;
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+  }
 }
 
 /*# sourceMappingURL=index.c92073ef.css.map */
