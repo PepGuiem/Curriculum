@@ -216,13 +216,26 @@ body{
 
 
 .light p{
-    font-size: 80%;
+    padding: 1%;
+    font-size: 70%;
     font-weight: bold;
     margin: 10px;
 }
 
+.light img{
+    margin-top: 3%;
+}
+
 .lamp-responsive{
     display: none;
+}
+
+i{
+    font-size: 1000px;
+}
+
+i:hover{
+    color: rgb(83, 81, 81);
 }
 
 
@@ -255,7 +268,7 @@ body{
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .div-content{
         display: none;
     }

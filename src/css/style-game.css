@@ -36,9 +36,9 @@
 
 .buttons-game{
     height: 80%;
-    margin-left: 5%;
+    margin-left: 2%;
     margin-top: 5%;
-    width: 15%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,8 +48,9 @@
     background-color: rgb(37, 160, 133);
     border-radius: 4px;
     border: rgb(3, 57, 61) solid 2px;
-    padding: 10px;
+    padding: 10%;
     font-weight: bold;
+    font-size: 75%;
 }
 
 .button-game:hover{
@@ -102,10 +103,11 @@
 }
 
 .lamp-content1 .light .cards-lights{
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 20%;
+    width: 60%;
     height: 80%;
     background-color: #D9D9D9;
     border: solid 3px black;
     border-radius: 5px;
+    font-size: 90%;
 }
